@@ -1,5 +1,6 @@
 package commonLibs.utils;
 
+import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -16,7 +17,11 @@ public class LogOutPage extends BasePage {
     public void logOut(){
         this.logOutMenuItem.click();
 
-        WaitUtils.waitAlertIsVisible(driver, 10);
+        try{
+            WaitUtils.waitAlertIsVisible(driver, 10);
+        } catch (Exception e) { throw new NotFoundException();
+        }
+
         alertDialog.confirmLogOut();
     }
 }

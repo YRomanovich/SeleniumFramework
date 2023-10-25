@@ -33,7 +33,7 @@ public class WaitUtils {
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
     }
 
-    public static void waitAlertIsVisible(WebDriver driver, int timeoutInSeconds){
+    public static void waitAlertIsVisible(WebDriver driver, int timeoutInSeconds) throws Exception {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
 
         wait.until(ExpectedConditions.alertIsPresent());
