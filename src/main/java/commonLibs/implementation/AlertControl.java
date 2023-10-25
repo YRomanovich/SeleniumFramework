@@ -4,13 +4,12 @@ import commonLibs.contracts.IAlert;
 import commonLibs.utils.WaitUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-public class CommonAlert implements IAlert {
+public class AlertControl implements IAlert {
 
     private final WebDriver driver;
 
-    public CommonAlert(WebDriver driver){ this.driver = driver; }
+    public AlertControl(WebDriver driver){ this.driver = driver; }
 
     private Alert getAlert(){ return driver.switchTo().alert();}
 

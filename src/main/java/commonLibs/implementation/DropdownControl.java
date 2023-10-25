@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class CommonDropdown implements IDropdown {
+public class DropdownControl implements IDropdown {
 
     private Select getSelect(WebElement element){
         return new Select(element);
