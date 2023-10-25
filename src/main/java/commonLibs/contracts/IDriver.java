@@ -1,7 +1,5 @@
 package commonLibs.contracts;
 
-import java.security.PublicKey;
-
 public interface IDriver {
     void navigateToFirstUrl(String url) throws Exception;
     String getTitle() throws Exception;
