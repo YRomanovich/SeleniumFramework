@@ -1,11 +1,11 @@
-package commonLibs.contracts;
+package commonLibs.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
-public class LogOutPage extends BasePage{
+public class LogOutPage extends BasePage {
     @FindBy(linkText = "Log Out")
     @CacheLookup
     private WebElement logOutMenuItem;

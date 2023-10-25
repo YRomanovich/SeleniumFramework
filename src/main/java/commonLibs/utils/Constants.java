@@ -1,4 +1,4 @@
-package commonLibs.contracts;
+package commonLibs.utils;
 
 public class Constants {
     public static final String CURRENT_DIRECTORY = System.getProperty("user.dir");

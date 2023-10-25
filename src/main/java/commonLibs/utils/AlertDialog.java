@@ -1,5 +1,6 @@
-package commonLibs.contracts;
+package commonLibs.utils;
 
+import commonLibs.utils.LogInPage;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 

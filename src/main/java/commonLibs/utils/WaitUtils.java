@@ -1,4 +1,4 @@
-package commonLibs.contracts;
+package commonLibs.utils;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package commonLibs.contracts;
+package commonLibs.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class LogInPage extends BasePage{
+public class LogInPage extends BasePage {
     @FindBy(name = "uid")
     @CacheLookup
     private WebElement userName;
