@@ -12,13 +12,19 @@ import java.time.Duration;
 
 public class WaitUtils {
 
-    public static void waitElementIsVisible(WebDriver driver, WebElement element, int  timeoutInSeconds){
+    public static void waitElementIsVisible(WebDriver driver, WebElement element, int  timeoutInSeconds) throws Exception{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
 
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void waitElementIsVisible(WebDriver driver, WebElement element, int timeoutInSeconds, int pollingTime){
+    public static void waitElementIsClickable(WebDriver driver, WebElement element, int  timeoutInSeconds) throws Exception{
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public static void waitElementIsVisible(WebDriver driver, WebElement element, int timeoutInSeconds, int pollingTime) throws Exception{
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(timeoutInSeconds))
                 .pollingEvery(Duration.ofSeconds(pollingTime))
@@ -27,7 +33,7 @@ public class WaitUtils {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void waitForFrameAndNavigateToIt(WebDriver driver, WebElement element, int timeoutInSeconds){
+    public static void waitForFrameAndNavigateToIt(WebDriver driver, WebElement element, int timeoutInSeconds) throws Exception{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
 
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));

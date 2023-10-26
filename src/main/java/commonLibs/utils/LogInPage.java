@@ -43,14 +43,15 @@ public class LogInPage extends BasePage {
         logInButton.click();
     }
 
-    public void acceptCookiesNotification(){
+    public void acceptCookiesNotification() throws Exception{
         WaitUtils.waitForFrameAndNavigateToIt(driver, this.iFrame, 10);
         saveCookies.click();
         driver.switchTo().defaultContent();
     }
 
-    public ManagerPage logIn(String userName, String password){
+    public ManagerPage logIn(String userName, String password) throws Exception {
         WaitUtils.waitElementIsVisible(driver, this.userName, 10);
+
         this.userName.clear();
         this.userName.sendKeys(userName);
         this.password.sendKeys(password);
