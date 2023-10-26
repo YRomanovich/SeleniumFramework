@@ -2,7 +2,6 @@ package in.co.mercuryTravel.pages;
 
 import commonLibs.implementation.CommonElement;
 import commonLibs.implementation.DropdownControl;
-import commonLibs.utils.Constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
