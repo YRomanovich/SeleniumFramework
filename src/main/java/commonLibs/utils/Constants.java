@@ -8,9 +8,7 @@ public class Constants {
 
     public static final String USER_ID = "mngr532940";
     public static final String PASSWORD = "yhUpEha";
-    public static final String URL = "https://demo.guru99.com/V4/";
-    public static final String URLDragAndDrop = "https://test.qatechhub.com/drag-and-drop/";
-
+    public static final String URL = "https://www.mercurytravels.co.in/";
     public static final int pageLoadTimeout = 30;
     public static final int implicitWait = 5;
 }
