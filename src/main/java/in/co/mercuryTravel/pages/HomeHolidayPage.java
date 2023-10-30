@@ -1,7 +1,5 @@
 package in.co.mercuryTravel.pages;
 
-import commonLibs.implementation.CommonElement;
-import commonLibs.implementation.DropdownControl;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,54 +16,50 @@ public class HomeHolidayPage extends BasePage{
     @FindBy(name="theme")
     private WebElement searchButton;
 
-    CommonElement element;
-    DropdownControl dropdown;
 
     public HomeHolidayPage(WebDriver driver) {
         super(driver);
-        element = new CommonElement();
-        dropdown = new DropdownControl();
     }
 
     public void enterDestination(String destinationText) throws Exception {
-        element.setText(destinationField, destinationText);
+        commonElement.setText(destinationField, destinationText);
     }
 
     public void enterStartDate(String startDateText) throws Exception {
-        element.setText(startDateField, startDateText);
+        commonElement.setText(startDateField, startDateText);
     }
 
     public void selectDuration(String durationText) throws Exception {
-        dropdown.selectByVisibleText(durationField, durationText);
+        dropdownControl.selectByVisibleText(durationField, durationText);
     }
 
     public void selectHolidayType(String holidayTypeText) throws Exception {
-        dropdown.selectByVisibleText(holidayTypeField, holidayTypeText);
+        dropdownControl.selectByVisibleText(holidayTypeField, holidayTypeText);
     }
 
     public String getDestination() throws Exception {
-        return element.getText(destinationField);
+        return commonElement.getText(destinationField);
     }
 
     public String getStartDate() throws Exception {
-        return element.getText(startDateField);
+        return commonElement.getText(startDateField);
     }
 
     public String getDuration() throws Exception {
-        return dropdown.getCurrentValue(durationField);
+        return dropdownControl.getCurrentValue(durationField);
     }
 
     public String getHolidayType() throws Exception {
-        return dropdown.getCurrentValue(holidayTypeField);
+        return dropdownControl.getCurrentValue(holidayTypeField);
     }
 
     public HomeHolidayPage clickSearchToStayOnHomePage() throws Exception{
-        element.clickElement(searchButton);
+        commonElement.clickElement(searchButton);
         return new HomeHolidayPage(driver);
     }
 
     public HolidaySearchResultsPage clickSearchHolidayToGetSearchResults() throws Exception {
-        element.clickElement(searchButton);
+        commonElement.clickElement(searchButton);
         return new HolidaySearchResultsPage(driver);
     }
 }
