@@ -11,6 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class WaitUtils {
+    public static void waitForSeconds(int seconds) throws Exception{
+        Thread.sleep(Duration.ofSeconds(seconds));
+    }
 
     public static void waitElementIsVisible(WebDriver driver, WebElement element, int  timeoutInSeconds) throws Exception{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));

@@ -1,6 +1,7 @@
 package commonLibs.implementation;
 
 import commonLibs.contracts.IDriver;
+import commonLibs.utils.ConfigFileUtils;
 import commonLibs.utils.Constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,15 +10,25 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
+import java.util.Properties;
 
 public class CommonDriver implements IDriver {
     private WebDriver driver;
     private int pageLoadTime;
     private int elementDetectionTimeout;
+    static Properties configProperties;
+
+    static {
+        try {
+            configProperties = ConfigFileUtils.readProperties(Constants.CONFIG_DIRECTORY);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public CommonDriver(String browserType) throws Exception {
-        pageLoadTime = 10;
-        elementDetectionTimeout = 60;
+        pageLoadTime = Integer.parseInt(configProperties.getProperty("pageLoadTimeout"));
+        elementDetectionTimeout = Integer.parseInt(configProperties.getProperty("implicitWait"));
 
         if (browserType.equalsIgnoreCase("chrome")){
             System.setProperty("webbriver.chrome.driver", Constants.DRIVERS_DIRECTORY + "chromedriver.exe");
@@ -58,7 +69,7 @@ public class CommonDriver implements IDriver {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(pageLoadTime));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(elementDetectionTimeout));
 
-        driver.get(url);
+        driver.get(configProperties.getProperty("url"));
     }
 
     @Override
