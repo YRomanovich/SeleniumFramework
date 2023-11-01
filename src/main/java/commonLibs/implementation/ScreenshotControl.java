@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import java.io.File;
 
 public class ScreenshotControl implements IScreenshot {
-    private TakesScreenshot screnshot;
+    private final TakesScreenshot screnshot;
     public ScreenshotControl(WebDriver driver) {
         screnshot = (TakesScreenshot) driver;
     }

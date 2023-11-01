@@ -13,7 +13,7 @@ import java.time.Duration;
 import java.util.Properties;
 
 public class CommonDriver implements IDriver {
-    private WebDriver driver;
+    private final WebDriver driver;
     private int pageLoadTime;
     private int elementDetectionTimeout;
     static Properties configProperties;

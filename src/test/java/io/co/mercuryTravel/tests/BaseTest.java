@@ -13,13 +13,16 @@ import commonLibs.utils.Constants;
 import commonLibs.utils.DateUtils;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Optional;
 
 import java.util.Properties;
 
 public class BaseTest {
     private static CommonDriver driver;
-    private static String executionSate;
     static ExtentHtmlReporter htmlReporter;
     static ExtentReports extentReports;
     static ExtentTest extentTest;
