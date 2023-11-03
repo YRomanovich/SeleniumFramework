@@ -37,21 +37,7 @@ public class BaseTest {
 
     @BeforeSuite
     public static void beforeSuite() throws Exception {
-        reportFilePath = Constants.REPORTS_DIRECTORY
-                + configProperties.getProperty("reportFileName")
-                + String.format("%s.html", DateUtils.getCurrentTimeAndDate());
-
-        htmlReporter = new ExtentHtmlReporter(reportFilePath);
-        extentReports = new ExtentReports();
-
-        extentReports.attachReporter(htmlReporter);
-
-        htmlReporter.config().setDocumentTitle("Selenium Framework Project");
-        htmlReporter.config().setReportName("Selenium Framework Report");
-        htmlReporter.config().setChartVisibilityOnOpen(true);
-        htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
-        htmlReporter.config().setTheme(Theme.DARK);
-        extentTest.log(Status.INFO, "Reporting is set up and started");
+        initializeReport();
     }
 
     @BeforeMethod(alwaysRun = true)
@@ -89,5 +75,23 @@ public class BaseTest {
     public static void afterSuite() throws Exception {
         extentReports.flush();
         extentTest.log(Status.INFO, "Report is created and placed to " + reportFilePath);
+    }
+
+    private static void initializeReport(){
+        reportFilePath = Constants.REPORTS_DIRECTORY
+                + configProperties.getProperty("reportFileName")
+                + String.format("%s.html", DateUtils.getCurrentTimeAndDate());
+
+        htmlReporter = new ExtentHtmlReporter(reportFilePath);
+        extentReports = new ExtentReports();
+
+        extentReports.attachReporter(htmlReporter);
+
+        htmlReporter.config().setDocumentTitle("Selenium Framework Project");
+        htmlReporter.config().setReportName("Selenium Framework Report");
+        htmlReporter.config().setChartVisibilityOnOpen(true);
+        htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
+        htmlReporter.config().setTheme(Theme.DARK);
+        extentTest.log(Status.INFO, "Reporting is set up and started");
     }
 }
