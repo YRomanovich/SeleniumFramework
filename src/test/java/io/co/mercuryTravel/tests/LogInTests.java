@@ -1,7 +1,6 @@
 package io.co.mercuryTravel.tests;
 
 import io.co.mercuryTravel.utils.TestDataProvider;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LogInTests extends BaseTest{
