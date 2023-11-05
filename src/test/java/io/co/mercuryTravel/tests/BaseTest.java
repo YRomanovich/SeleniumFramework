@@ -26,7 +26,6 @@ public class BaseTest {
     static Properties configProperties;
     static ScreenshotControl screenshotControl;
 
-
     static {
         try {
             configProperties = ConfigFileUtils.readProperties(Constants.CONFIG_DIRECTORY);
@@ -93,5 +92,9 @@ public class BaseTest {
         htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
         htmlReporter.config().setTheme(Theme.DARK);
         extentTest.log(Status.INFO, "Reporting is set up and started");
+    }
+
+    public static WebDriver getDriver(){
+        return driver.getDriver();
     }
 }

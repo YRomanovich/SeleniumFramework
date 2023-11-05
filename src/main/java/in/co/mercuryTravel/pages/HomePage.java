@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 public class HomePage extends BasePage{
     @FindBy(linkText = "User Login")
     private WebElement logInMenuItem;
+    @FindBy(linkText = "User Login")
+    private WebElement welcomeText;
     @FindBy(id = "Register")
     private WebElement registerMenuItem;
     @FindBy(linkText = "Customer Login")
@@ -24,6 +26,10 @@ public class HomePage extends BasePage{
             isDisplayed = false;
         }
         return isDisplayed;
+    }
+
+    public String getWelcomeText(){
+        return welcomeText.getText();
     }
 
     public void openCustomerLogInMenu()  throws Exception{
